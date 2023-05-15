@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styile.css">
+    <link rel="stylesheet" href="css/datatables.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css">
+</head>
+<body>
+    <header>
+        <div class="menu container">
+            <a href="#" class="logo">Logo</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="Imagenes/menu-btn.png"  class="menu-icono">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="carrito.html"><img src="Imagenes/irACarrito.png" class="carrito"></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <h2>Inventario</h2>
+        </div>
+    </header>
+
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Clave</th>
+                <th>Producto</th>
+                <th>Categoria</th>
+                <th>Existencia</th>
+                <th>Nivel De Reorden</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/datatables.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -11,7 +11,7 @@ body{
     background-color: #ffffff;
 }
 header{
-    background-image: url(Imagenes/hero.svg);
+    background-image: url(../Imagenes/hero.svg);
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -85,6 +85,12 @@ header{
     font-weight: 500;
     line-height: 55px;
 }
+h2{
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 40px;
+}
 .content p{
     margin-top: 25px;
     color: #ffffff;
@@ -128,7 +134,7 @@ header{
 }
 .feactures{
     padding: 50px 0px;
-    background-image: url(Imagenes/features.svg);
+    background-image: url(../Imagenes/features.svg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -184,7 +190,7 @@ header{
 }
 footer{
     padding: 0px 0px 30px 0px;
-    background-image: url(Imagenes/footer.svg);
+    background-image: url(../Imagenes/footer.svg);
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
