@@ -13,10 +13,12 @@ $(document).ready(function() {
                     return '<button class="btn btn-info">Editar</button> <button class="btn btn-danger">Eliminar</button>';
                 }
             }
-        ]
-        
-        
-        
+        ],
+        rowCallback: function(row, data, index) {
+          if (data.nivel_reorden > data.existencia) {
+              $(row).css('background-color', 'red');
+          }
+      }
     });
 });
 

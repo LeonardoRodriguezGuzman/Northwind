@@ -360,3 +360,7 @@ hr{
         flex-direction: column;
     }
 }
+
+.row-red {
+    background-color: red;
+}
