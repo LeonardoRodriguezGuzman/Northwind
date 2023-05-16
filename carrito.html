@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Carrito</title>
     <link rel="stylesheet" href="css/styile.css">
 </head>
@@ -30,9 +31,50 @@
         </div>
     </header>
 
+    <div class="container">
+        <h1>Lista de Productos</h1>
+        <table id="tabla-productos" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Existencia</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los productos -->
+            </tbody>
+        </table>
+
+        <h1>Contenido del Carrito</h1>
+        <table id="tabla-carrito" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Foto</th>
+                    <th>Precio</th>
+                    <th>Unidades</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrará el contenido del carrito -->
+            </tbody>
+        </table>
+
+        <button class="btn btn-primary" onclick="confirmarCompra()">Confirmar Compra</button>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script src="js/scriptCarrito.js"></script>
 </body>
 
 </html>
