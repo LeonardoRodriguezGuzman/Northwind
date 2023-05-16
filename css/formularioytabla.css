@@ -1,0 +1,58 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.row-red {
+    background-color: red;
+}
+
+
+#formulario-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: #4eb8fa;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 1s ease-in-out;
+    z-index: 9999;
+}
+
+#formulario{
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    padding: 20px;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding-bottom: 20px;
+}
+
+.botones button {
+    background-color: #4eb8fa;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 25px;
+    border-color: #4eb8fa;
+}
+.botones button :hover {
+    background-color: #0F71CC;
+}
+#btn-agregar{
+    display: none;
+}
+#btn-editar{
+    display: none;
+}

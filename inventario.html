@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/styile.css">
     <link rel="stylesheet" href="css/datatables.css">
     <link rel="stylesheet" href="css/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="css/formularioytabla.css">
 </head>
 <body>
     <header>
@@ -31,25 +33,41 @@
             <h2>Inventario</h2>
         </div>
     </header>
-
-    <table id="tabla">
-        <thead>
-            <tr>
-                <th>Clave</th>
-                <th>Producto</th>
-                <th>Categoria</th>
-                <th>Existencia</th>
-                <th>Nivel De Reorden</th>
-                <th>Opciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <div id="formulario">
-        <form action="">
-            
+    <div class="table">
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>Clave</th>
+                    <th>Producto</th>
+                    <th>Categoria</th>
+                    <th>Existencia</th>
+                    <th>Nivel De Reorden</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="boton-agregar" onclick="mostrarFormularioAgregar()">Agregar</button>
+    </div>
+    <div id="formulario-container" class="formulario-container">
+        <form id="formulario" class="formulario">
+            <label for="clave">Clave:</label>
+            <input type="text" id="clave" name="clave"><br>
+            <label for="producto">Producto:</label>
+            <input type="text" id="producto" name="producto"><br>
+            <label for="categoria">Categoria:</label>
+            <input type="text" id="categoria name="categoria"><br>
+            <label for="existencia">Existencia:</label>
+            <input type="text" id="existencia" name="existencia"><br>
+            <label for="nivel_reorden">Nivel de Reorden:</label>
+            <input type="text" id="nivel_reorden" name="nivel_reorden"><br>
         </form>
+        <div class="botones">
+            <button onclick="agregar()" id="btn-agregar">Guardar</button>
+            <button onclick="editar()" id="btn-editar">Editar</button>
+            <button onclick="cancelar()">Cancelar</button>
+        </div>
     </div>
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/datatables.js"></script>
