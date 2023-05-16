@@ -1,7 +1,7 @@
 var productos = [
-    { producto: 'aptop', categoria: 'Categoría 1', precio: 10, existencia: 5, foto: 'ruta/foto1.jpg' },
-    { producto: 'Camara', categoria: 'Categoría 2', precio: 15, existencia: 3, foto: 'ruta/foto2.jpg' },
-    { producto: 'Ceular', categoria: 'Categoría 1', precio: 20, existencia: 10, foto: 'ruta/foto3.jpg' }
+    { producto: 'Laptop HP', categoria: 'Electrónicos', precio: 10000, existencia: 10, foto: 'ruta/foto1.jpg' },
+    { producto: 'Mouse Logitech', categoria: 'Electrónicos', precio: 500, existencia: 3, foto: 'ruta/foto2.jpg' },
+    { producto: 'Impresora Epson', categoria: 'Electrónicos', precio: 2000, existencia: 0, foto: 'ruta/foto3.jpg' }
 ];
 
 var carrito = [];
@@ -17,7 +17,7 @@ function mostrarProductos() {
             producto.categoria,
             producto.precio,
             producto.existencia,
-            '<button class="btn btn-primary" onclick="agregarAlCarrito(\'' + producto.producto + '\')">Agregar al Carrito</button>'
+            '<button class="btn btn-primary btn-carrito" onclick="agregarAlCarrito(\'' + producto.producto + '\')">Agregar al Carrito</button>'
         ]).draw(false);
     });
 }
@@ -31,75 +31,83 @@ function limpiarTablaProductos() {
 // Función para agregar un producto al carrito
 function agregarAlCarrito(producto) {
     var productoEncontrado = productos.find(function (p) {
-        return p.producto === producto;
+      return p.producto === producto;
     });
-
+  
     if (productoEncontrado) {
-        if (productoEncontrado.existencia > 0) {
-            var productoEnCarrito = carrito.find(function (item) {
-                return item.producto === productoEncontrado.producto;
-            });
-
-            if (productoEnCarrito) {
-                productoEnCarrito.unidades++;
-            } else {
-                carrito.push({ ...productoEncontrado, unidades: 1 });
-            }
-
-            productoEncontrado.existencia--;
-
-            var tablaCarrito = $('#tabla-carrito').DataTable();
-            tablaCarrito.clear().draw();
-
-            carrito.forEach(function (item) {
-                tablaCarrito.row.add([
-                    item.producto,
-                    '<img src="' + item.foto + '" width="50" height="50">',
-                    item.precio,
-                    item.unidades,
-                    '<button class="btn btn-danger" onclick="eliminarDelCarrito(\'' + item.producto + '\')">Eliminar</button>'
-                ]).draw(false);
-            });
-
-            mostrarProductos();
+      if (productoEncontrado.existencia > 0) {
+        var productoEnCarrito = carrito.find(function (item) {
+          return item.producto === productoEncontrado.producto;
+        });
+  
+        if (productoEnCarrito) {
+          productoEnCarrito.unidades++;
         } else {
-            alert('No hay existencia disponible para este producto.');
+          carrito.push({ ...productoEncontrado, unidades: 1 });
         }
+  
+        productoEncontrado.existencia--;
+  
+        var tablaCarrito = $('#tabla-carrito').DataTable();
+        tablaCarrito.clear().draw();
+  
+        carrito.forEach(function (item) {
+          tablaCarrito.row.add([
+            item.producto,
+            '<img src="' + item.foto + '" width="50" height="50">',
+            item.precio,
+            item.unidades,
+            '<button class="btn btn-danger" onclick="eliminarDelCarrito(\'' + item.producto + '\')">Eliminar</button>'
+          ]).draw(false);
+        });
+  
+        mostrarProductos();
+      } else {
+        alert('No hay existencia disponible para este producto.');
+      }
     }
-}
+  }
 
 
 // Función para eliminar un producto del carrito
 function eliminarDelCarrito(producto) {
     var index = carrito.findIndex(function (item) {
-        return item.producto === producto;
+      return item.producto === producto;
     });
-
+  
     if (index !== -1) {
-        var productoEnCarrito = carrito[index];
-
-        if (productoEnCarrito.unidades > 1) {
-            productoEnCarrito.unidades--;
-        } else {
-            carrito.splice(index, 1);
-        }
-
-        var tablaCarrito = $('#tabla-carrito').DataTable();
-        tablaCarrito.clear().draw();
-
-        carrito.forEach(function (item) {
-            tablaCarrito.row.add([
-                item.producto,
-                '<img src="' + item.foto + '" width="50" height="50">',
-                item.precio,
-                item.unidades,
-                '<button class="btn btn-danger" onclick="eliminarDelCarrito(\'' + item.producto + '\')">Eliminar</button>'
-            ]).draw(false);
-        });
-
+      var productoEnCarrito = carrito[index];
+  
+      if (productoEnCarrito.unidades > 1) {
+        productoEnCarrito.unidades--;
+      } else {
+        carrito.splice(index, 1);
+      }
+  
+      var tablaCarrito = $('#tabla-carrito').DataTable();
+      tablaCarrito.clear().draw();
+  
+      carrito.forEach(function (item) {
+        tablaCarrito.row.add([
+          item.producto,
+          '<img src="' + item.foto + '" width="50" height="50">',
+          item.precio,
+          item.unidades,
+          '<button class="btn btn-danger" onclick="eliminarDelCarrito(\'' + item.producto + '\')">Eliminar</button>'
+        ]).draw(false);
+      });
+  
+      // Restablecer unidades en la lista de productos
+      var productoEncontrado = productos.find(function (p) {
+        return p.producto === producto;
+      });
+  
+      if (productoEncontrado) {
+        productoEncontrado.existencia++;
         mostrarProductos();
+      }
     }
-}   
+  }   
 
 
 // Función para confirmar la compra
