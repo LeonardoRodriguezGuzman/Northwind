@@ -365,9 +365,10 @@ hr{
     background-color: red;
 }
 
-.btn-carrito {
-    font-size: 14px;
-    padding: 5px 40px;
-    white-space: nowrap;
-    /* Agrega otros estilos personalizados según tus necesidades */
+.my-card {
+    transition: transform 0.3s ease;
+}
+
+.my-card:hover {
+    transform: scale(1.05);
 }
